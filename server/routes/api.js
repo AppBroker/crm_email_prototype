@@ -25,7 +25,11 @@ var xoptions = {
 };
 
 /**
-	This method is called when a user on the CRM decides he wants to send out invoices to all his clients, similar process to method below but takes a list of the users clients that have outstanding balances, uses the headless browser to browse the invoice generator back on the CRM that then creates the outstanding invoice on the fly, creates a PDF from it combining inlined html and binary logo data and attaches it for php to send on.
+	This method is called when a user on the CRM decides he wants to send out invoices to all his clients, 
+	similar process to method below but takes a list of the users clients that have outstanding balances, 
+	uses the headless browser to browse the invoice generator back on the CRM that then creates the outstanding 
+	invoice on the fly, creates a PDF from it combining inlined html and binary logo data and attaches 
+	it for php to send on.
 **/
 exports.invoiceAll = function (req, res) {
 	var manageraccount = req.body;
@@ -129,7 +133,19 @@ exports.invoiceAll = function (req, res) {
 };
 
 /**
-	This method, besides just sending emails also takes a screenshot of whatever html is passed to it and then sends an attachment by firing up a headless browser using whatever html is passed to it from the site capturing the binary data and making it ready to convert to PDF or any other attachment format. This means that a user can make whatever changes to their invoice template on the client side and we dont need to make additional calls to the db, or wory about having to save the states to rebuild the invoice after the fact. The user only needs to create their invoice once on the SAAS tool/invoice page on the site and we can then wrap the html from that edited invoice image up in whatever format we want after that converting it to pdf png, jpeg etc. There is no need to create additional views or designs for invoices. In a nutshell it just grabs an html page at that point in time and sends an email representation attachment of it as a png or pdf. It also converts the css to inline styling for use within an email client.
+	This method, besides just sending emails also takes a screenshot of whatever html 
+	is passed to it and then sends an attachment by firing up a headless browser using 
+	whatever html is passed to it from the site capturing the binary data and making it 
+	ready to convert to PDF or any other attachment format. This means that a user can 
+	make whatever changes to their invoice template on the client side and we dont need 
+	to make additional calls to the db, or wory about having to save the states to rebuild 
+	the invoice after the fact. The user only needs to create their invoice once on the 
+	SAAS tool/invoice page on the site and we can then wrap the html from that edited invoice 
+	image up in whatever format we want after that converting it to pdf png, jpeg etc. 
+	There is no need to create additional views or designs for invoices. 
+	In a nutshell it just grabs an html page at that point in time and sends an email 
+	representation attachment of it as a png or pdf. It also converts the css to 
+	inline styling for use within an email client.
 **/
 exports.sendInvoice = function (req, res) {
     var account = req.body;
@@ -213,7 +229,9 @@ EM.newXHR = function(req, res){
 	return xhr;
 }
 
-/** Prep email invoice backlinks based on a users client base, Set up the urls for the invoices that you want to turn into PDF **/
+/** Prep email invoice backlinks based on a users client base, 
+Set up the urls for the invoices that you want to turn into PDF 
+**/
 EM.buildInvoiceLinks = function(manager_account){
 	var useCardPayments = manager_account.invoice_card_payments;
 	var accounts = manager_account.customersArr;

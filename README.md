@@ -12,7 +12,10 @@ Please note the code is stable however still very much a work in progress.
 There are 3 separate occasions that my clients may request to send invoices through email within the system.
 	
 1) By viewing a clients account selecting outstanding transactions and creating an invoice on the fly and sending directly from that particular created invoice.
+
 2) On the users dashboard for time saving purposes use a user may want to invoice all his clients that have outstanding transactions with him all at the same time.
+
 3) Within CRM settings a user may wish to set his invoices to be sent out automatically in which case this microservice is called via CRON at required times.
+
 
 This prototype effectively looks to solve these cases simply by re-using existing app code to generate email data on the fly when required.

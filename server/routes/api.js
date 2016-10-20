@@ -152,11 +152,7 @@ exports.sendInvoice = function (req, res) {
 	
 	var clientInvoiceLink = EM.composeClientInvoiceLink(account.manager, AS.appurl, account.customerId, account.invoiceId, account.iToken, account.invoice_card_payments);
 	
-    //TODO: Refactor this... shouldnt be here, add to the incoming html once the token is generated server side.
-	var emailbody = "";
-	if(account && account.emailBody){
-		emailbody = account.emailBody.replace("~insert~", account.iToken);
-	}
+	var emailbody = account.emailBody;
     
     //Client backlink to invoice
 	var nhtml = "<html>";

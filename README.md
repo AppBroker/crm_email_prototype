@@ -20,4 +20,4 @@ There are 3 separate occasions that my clients may request to send invoices thro
 3) Within CRM settings a user may wish to set his invoices to be sent out automatically in which case this microservice is called via CRON at required times.
 
 
-This prototype effectively looks to solve these cases simply by re-using existing app code to generate email data on the fly when required.
+This prototype effectively looks to solve these cases simply byusing existing app on page html elements to generate email data on the fly from them when required.
